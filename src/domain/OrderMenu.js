@@ -1,4 +1,6 @@
+import { MENU } from "../constants/constants.js";
 import { ERROR_MESSAGE } from "../constants/messages.js";
+
 import Validator from "../validators/Validator.js";
 
 class OrderMenu {
@@ -33,6 +35,13 @@ class OrderMenu {
     if (Validator.checkLessThanTwenty(numbers)) {
       throw new Error(ERROR_MESSAGE.INVALID_ORDER);
     }
+  }
+
+  getTotalAmount() {
+    return this.menus.reduce((total, el, index) => {
+      const menu = MENU.find((item) => item.name === el);
+      return total + menu.price * this.numbers[index];
+    }, 0);
   }
 
 }

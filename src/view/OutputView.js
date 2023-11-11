@@ -11,6 +11,11 @@ const OutputView = {
     );
   },
 
+  printOrderAmount(total) {
+    Console.print(OUTPUT_MESSAGE.BEFORE_DISCOUNT);
+    Console.print(`${total.toLocaleString()}원`);
+  },
+  
 };
 
 export default OutputView;

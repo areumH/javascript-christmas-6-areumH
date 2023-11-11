@@ -14,6 +14,7 @@ class PromotionController {
     const date = await this.#inputView.getVisitDate();
     const order = await this.#inputView.getOrderMenu();
     this.#outputView.printOrderMenu(order);
+    this.#outputView.printOrderAmount(order.getTotalAmount());
   }
 }
 
