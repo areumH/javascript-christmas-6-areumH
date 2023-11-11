@@ -26,7 +26,7 @@ class PromotionHandler {
         : null;
     }
     return weekdayDiscount !== 0
-      ? [DISCOUNT_MESSAGE.WEEKEND_MESSAGE, weekdayDiscount]
+      ? [DISCOUNT_MESSAGE.WEEKDAY_MESSAGE, weekdayDiscount]
       : null;
   }
 

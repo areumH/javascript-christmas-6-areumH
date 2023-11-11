@@ -22,22 +22,27 @@ class PromotionController {
     this.#outputView.printGiftMenu(order.getTotalAmount());
 
     const discountArray = this.#getDiscountArray(order, date);
-    this.#outputView.printDisountList(discountArray);
+    this.#outputView.printDiscountList(discountArray);
+    this.#outputView.printDiscountAmount(
+      this.#getDiscountAmount(discountArray)
+    );
   }
-
 
   #getDiscountArray(order, date) {
     let array = [];
 
     array.push(this.#handler.getChristmasDiscount(date));
-    array.push(this.#handler.getWeekDiscount(order,date));
+    array.push(this.#handler.getWeekDiscount(order, date));
     array.push(this.#handler.getStarDiscount(date));
     array.push(this.#handler.getGiftDiscount(order));
 
-    return array; 
+    return array;
   }
 
+  #getDiscountAmount(array) {
+    const discountArray = array.filter((el) => el !== null);
+    return discountArray.reduce((total, arr) => total + arr[1], 0);
+  }
 }
 
 export default PromotionController;
-

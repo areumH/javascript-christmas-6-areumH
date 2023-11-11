@@ -9,6 +9,14 @@ const OutputView = {
 
     orderMenu.printOrderMenu();
   },
+  
+  amountWithComma(input) {
+    return `${input.toLocaleString()}원`;
+  },
+
+  discountWithComma(input) {
+    return `-${this.amountWithComma(input)}`;
+  },
 
   printOrderAmount(total) {
     Console.print(OUTPUT_MESSAGE.BEFORE_DISCOUNT);
@@ -22,7 +30,7 @@ const OutputView = {
     Console.print(message);
   },
 
-  printDisountList(discountArray) { 
+  printDiscountList(discountArray) { 
     Console.print(OUTPUT_MESSAGE.DISCOUNT_LIST);
 
     discountArray.forEach((array) => {
@@ -32,13 +40,11 @@ const OutputView = {
     });
   },
 
-  amountWithComma(input) {
-    return `${input.toLocaleString()}원`;
-  },
+  printDiscountAmount(discount) {
+    Console.print(OUTPUT_MESSAGE.DISCOUNT_AMOUNT);
+    Console.print(this.discountWithComma(discount));
+  }
 
-  discountWithComma(input) {
-    return `-${this.amountWithComma(input)}`;
-  },
 };
 
 export default OutputView;
