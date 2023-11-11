@@ -28,14 +28,24 @@ const ORDER = {
   MIN_RANGE: 1,
   MAX_RANGE: 20,
   GIFT_AMOUNT: 120000,
+
+  STAR: 5000,
+  TREE: 10000,
+  SANTA: 20000,
 };
 
 const DISCOUNT = {
   BASIC: 1000,
   INCREASE: 100,
   WEEK: 2023,
-  STAR : 1000,
+  STAR: 1000,
   GIFT: 25000,
-}
+};
 
-export { MENU, DATE, ORDER, DISCOUNT };
+const BADGE = {
+  STAR: "별",
+  TREE: "트리",
+  SANTA: "산타",
+};
+
+export { MENU, DATE, ORDER, DISCOUNT, BADGE };

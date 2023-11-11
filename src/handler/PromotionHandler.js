@@ -1,4 +1,4 @@
-import { ORDER, DISCOUNT } from "../constants/constants.js";
+import { ORDER, DISCOUNT, BADGE } from "../constants/constants.js";
 import { DISCOUNT_MESSAGE } from "../constants/messages.js";
 
 class PromotionHandler {
@@ -44,6 +44,13 @@ class PromotionHandler {
       return [DISCOUNT_MESSAGE.GIFT_MESSAGE, DISCOUNT.GIFT];
     }
     return null;
+  }
+
+  getBadge(discount) {
+    if (discount >= ORDER.SANTA) return BADGE.SANTA;
+    if (discount >= ORDER.TREE) return BADGE.TREE;
+    if (discount >= ORDER.STAR) return BADGE.STAR;
+    return DISCOUNT_MESSAGE.NONE;
   }
 }
 

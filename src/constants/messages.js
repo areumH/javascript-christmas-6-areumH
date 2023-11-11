@@ -12,6 +12,7 @@ const OUTPUT_MESSAGE = {
   DISCOUNT_LIST: "\n<혜택 내역>",
   DISCOUNT_AMOUNT: "\n<총혜택 금액>",
   AFTER_DISCOUT: "\n<할인 후 예상 결제 금액>",
+  BADGE_MESSAGE: "\n<12월 이벤트 배지>",
 };
 
 const DISCOUNT_MESSAGE = {

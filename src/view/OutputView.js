@@ -50,8 +50,13 @@ const OutputView = {
   printAfterDiscount(total) {
     Console.print(OUTPUT_MESSAGE.AFTER_DISCOUT);
     Console.print(this.amountWithComma(total));
+  },
+
+  printBadge(badge) {
+    Console.print(OUTPUT_MESSAGE.BADGE_MESSAGE);
+    Console.print(badge);
   }
-  
+
 };
 
 export default OutputView;

@@ -23,10 +23,15 @@ class PromotionController {
 
     const discountArray = this.#getDiscountArray(order, date);
     this.#outputView.printDiscountList(discountArray);
-    this.#outputView.printDiscountAmount(
-      this.#getDiscountAmount(discountArray)
+
+    const discountAmount = this.#getDiscountAmount(discountArray);
+    this.#outputView.printDiscountAmount(discountAmount);
+    this.#outputView.printAfterDiscount(
+      this.#getAfterDiscount(order, discountArray)
     );
-    this.#outputView.printAfterDiscount(this.#getAfterDiscount(order,discountArray));
+
+    const badge = this.#getEventBadge(discountAmount);
+    this.#outputView.printBadge(badge);
   }
 
   #getDiscountArray(order, date) {
@@ -53,6 +58,10 @@ class PromotionController {
     const totalAmount = order.getTotalAmount();
     const discountArray = array.slice(0, -1).filter((el) => el !== null);
     return totalAmount - this.#getArraySum(discountArray);
+  }
+
+  #getEventBadge(discount) {
+    return this.#handler.getBadge(discount);
   }
 }
 
