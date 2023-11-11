@@ -19,6 +19,9 @@ const MENU = [
 const DATE = {
   MIN_RANGE: 1,
   MAX_RANGE: 31,
+  CHRISTMAS: 25,
+  WEEKEND: [1, 2, 8, 9, 15, 16, 22, 23, 29, 30],
+  STAR: [3, 10, 17, 24, 25, 31],
 };
 
 const ORDER = {
@@ -27,4 +30,12 @@ const ORDER = {
   GIFT_AMOUNT: 120000,
 };
 
-export { MENU, DATE, ORDER };
+const DISCOUNT = {
+  BASIC: 1000,
+  INCREASE: 100,
+  WEEK: 2023,
+  STAR : 1000,
+  GIFT: 25000,
+}
+
+export { MENU, DATE, ORDER, DISCOUNT };

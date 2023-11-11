@@ -9,11 +9,20 @@ const OUTPUT_MESSAGE = {
   MENU_LIST: "\n<주문 메뉴>",
   BEFORE_DISCOUNT: "\n<할인 전 총주문 금액>",
   GIFT_MENU: "\n<증정 메뉴>",
+  DISCOUNT_LIST: "\n<혜택 내역>",
 };
+
+const DISCOUNT_MESSAGE = {
+  CHRISTMAS_MESSAGE: "크리스마스 디데이 할인:",
+  WEEKDAY_MESSAGE: "평일 할인:",
+  WEEKEND_MESSAGE: "주말 할인:",
+  STAR_MESSAGE: "특별 할인:",
+  GIFT_MESSAGE: "증정 이벤트:",
+}
 
 const ERROR_MESSAGE = {
   INVALID_DATE: "[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.",
   INVALID_ORDER: "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.",
 };
 
-export { INPUT_MESSAGE, OUTPUT_MESSAGE, ERROR_MESSAGE };
+export { INPUT_MESSAGE, OUTPUT_MESSAGE, DISCOUNT_MESSAGE, ERROR_MESSAGE };

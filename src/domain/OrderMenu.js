@@ -51,6 +51,27 @@ class OrderMenu {
     }, 0);
   }
 
+  getMainCount() {
+    // 메인메뉴 개수 리턴 => 주말에 개당 2023원 할인
+    const mainMenu = MENU.filter((item) => item.type === "MAIN").map(
+      (item) => item.name
+    );
+
+    return this.#menus.reduce((total, el, index) => {
+      return mainMenu.includes(el) ? total + this.#numbers[index] : total;
+    }, 0);
+  }
+
+  getDessertCount() {
+    // 디저트메뉴 개수 리턴 => 평일에 개당 2023원 할인
+    const dessertMenu = MENU.filter((item) => item.type === "DESSERT").map(
+      (item) => item.name
+    );
+
+    return this.#menus.reduce((total, el, index) => {
+      return dessertMenu.includes(el) ? total + this.#numbers[index] : total;
+    }, 0);
+  }
 }
 
 export default OrderMenu;

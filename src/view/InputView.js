@@ -13,7 +13,7 @@ const InputView = {
 
     while (true) {
       try {
-        visitDate = new VisitDate(input);
+        visitDate = new VisitDate(parseInt(input));
         break;
       } catch (error) {
         Console.print(error.message);
