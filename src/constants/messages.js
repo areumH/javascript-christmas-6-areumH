@@ -19,6 +19,9 @@ const DISCOUNT_MESSAGE = {
   WEEKEND_MESSAGE: "주말 할인:",
   STAR_MESSAGE: "특별 할인:",
   GIFT_MESSAGE: "증정 이벤트:",
+
+  GIFT: "샴페인 1개",
+  NONE: "없음",
 }
 
 const ERROR_MESSAGE = {

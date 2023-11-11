@@ -1,6 +1,6 @@
 import { Console } from "@woowacourse/mission-utils";
 import { ORDER } from "../constants/constants.js";
-import { OUTPUT_MESSAGE } from "../constants/messages.js";
+import { DISCOUNT_MESSAGE, OUTPUT_MESSAGE } from "../constants/messages.js";
 
 const OutputView = {
   printOrderMenu(orderMenu) {
@@ -9,7 +9,7 @@ const OutputView = {
 
     orderMenu.printOrderMenu();
   },
-  
+
   amountWithComma(input) {
     return `${input.toLocaleString()}원`;
   },
@@ -24,27 +24,28 @@ const OutputView = {
   },
 
   printGiftMenu(total) {
-    const message = total >= ORDER.GIFT_AMOUNT ? "샴페인 1개" : "없음";
+    const message =
+      total >= ORDER.GIFT_AMOUNT
+        ? DISCOUNT_MESSAGE.GIFT
+        : DISCOUNT_MESSAGE.NONE;
 
     Console.print(OUTPUT_MESSAGE.GIFT_MENU);
     Console.print(message);
   },
 
-  printDiscountList(discountArray) { 
+  printDiscountList(discountArray) {
     Console.print(OUTPUT_MESSAGE.DISCOUNT_LIST);
 
     discountArray.forEach((array) => {
-      if (array !== null) {
+      array !== null &&
         Console.print(`${array[0]} ${this.discountWithComma(array[1])}`);
-      }
     });
   },
 
   printDiscountAmount(discount) {
     Console.print(OUTPUT_MESSAGE.DISCOUNT_AMOUNT);
     Console.print(this.discountWithComma(discount));
-  }
-
+  },
 };
 
 export default OutputView;
