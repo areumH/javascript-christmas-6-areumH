@@ -8,6 +8,7 @@ const OUTPUT_MESSAGE = {
   EVENT_MESSAGE: "12월 26일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!",
   MENU_LIST: "\n<주문 메뉴>",
   BEFORE_DISCOUNT: "\n<할인 전 총주문 금액>",
+  GIFT_MENU: "\n<증정 메뉴>",
 };
 
 const ERROR_MESSAGE = {

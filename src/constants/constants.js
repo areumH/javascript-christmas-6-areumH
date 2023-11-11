@@ -24,6 +24,7 @@ const DATE = {
 const ORDER = {
   MIN_RANGE: 1,
   MAX_RANGE: 20,
+  GIFT_AMOUNT: 120000,
 };
 
 export { MENU, DATE, ORDER };
