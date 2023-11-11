@@ -1,4 +1,4 @@
-import { DISCOUNT } from "../constants/constants.js";
+import { ORDER, DISCOUNT } from "../constants/constants.js";
 import { DISCOUNT_MESSAGE } from "../constants/messages.js";
 
 class PromotionHandler {
@@ -40,7 +40,7 @@ class PromotionHandler {
 
   getGiftDiscount(order) {
     // 샴페인증정
-    if (order.getTotalAmount() >= DISCOUNT.GIFT) {
+    if (order.getTotalAmount() >= ORDER.GIFT_AMOUNT) {
       return [DISCOUNT_MESSAGE.GIFT_MESSAGE, DISCOUNT.GIFT];
     }
     return null;
