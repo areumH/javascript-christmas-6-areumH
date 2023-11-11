@@ -1,16 +1,17 @@
 import { MENU } from "../constants/constants.js";
+import { Console } from "@woowacourse/mission-utils";
 import { ERROR_MESSAGE } from "../constants/messages.js";
 
 import Validator from "../validators/Validator.js";
 
 class OrderMenu {
-  menus;
-  numbers;
+  #menus;
+  #numbers;
 
   constructor(input) {
     this.#validate(input);
-    this.menus = input[0];
-    this.numbers = input[1];
+    this.#menus = input[0];
+    this.#numbers = input[1];
   }
 
   #validate(input) {
@@ -37,10 +38,16 @@ class OrderMenu {
     }
   }
 
+  printOrderMenu() {
+    this.#menus.forEach((menu, index) => {
+      Console.print(`${menu} ${this.#numbers[index]}개`);
+    });
+  }
+
   getTotalAmount() {
-    return this.menus.reduce((total, el, index) => {
+    return this.#menus.reduce((total, el, index) => {
       const menu = MENU.find((item) => item.name === el);
-      return total + menu.price * this.numbers[index];
+      return total + menu.price * this.#numbers[index];
     }, 0);
   }
 

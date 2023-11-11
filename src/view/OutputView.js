@@ -7,9 +7,7 @@ const OutputView = {
     Console.print(OUTPUT_MESSAGE.EVENT_MESSAGE);
     Console.print(OUTPUT_MESSAGE.MENU_LIST);
 
-    orderMenu.menus.forEach((menu, index) =>
-      Console.print(`${menu} ${orderMenu.numbers[index]}개`)
-    );
+    orderMenu.printOrderMenu();
   },
 
   printOrderAmount(total) {
@@ -18,8 +16,9 @@ const OutputView = {
   },
 
   printGiftMenu(total) {
-    Console.print(OUTPUT_MESSAGE.GIFT_MENU);
     const message = total >= ORDER.GIFT_AMOUNT ? "샴페인 1개" : "없음";
+
+    Console.print(OUTPUT_MESSAGE.GIFT_MENU);
     Console.print(message);
   }
   
