@@ -9,12 +9,7 @@ const Validator = {
   //
   // *** 주문 메뉴 확인
   isNotValidMenu(input) {
-    const allMenu = Object.values(MENU).reduce((acc, cur) => {
-      cur.forEach((item) => {
-        acc.push(item.name);
-      });
-      return acc;
-    }, []);
+    const allMenu = MENU.map((item) => item.name);
     return !allMenu.includes(input);
   },
 
@@ -34,7 +29,9 @@ const Validator = {
   },
 
   getDrinkMenu(menus) {
-    const drinkMenu = MENU.DRINK.map((item) => item.name);
+    const drinkMenu = MENU.filter((item) => item.type === "DRINK").map(
+      (item) => item.name
+    );
     return menus.filter((menu) => drinkMenu.includes(menu)).length;
   },
 
