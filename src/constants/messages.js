@@ -11,6 +11,7 @@ const OUTPUT_MESSAGE = {
   GIFT_MENU: "\n<증정 메뉴>",
   DISCOUNT_LIST: "\n<혜택 내역>",
   DISCOUNT_AMOUNT: "\n<총혜택 금액>",
+  AFTER_DISCOUT: "\n<할인 후 예상 결제 금액>",
 };
 
 const DISCOUNT_MESSAGE = {

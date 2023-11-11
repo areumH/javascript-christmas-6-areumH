@@ -26,6 +26,7 @@ class PromotionController {
     this.#outputView.printDiscountAmount(
       this.#getDiscountAmount(discountArray)
     );
+    this.#outputView.printAfterDiscount(this.#getAfterDiscount(order,discountArray));
   }
 
   #getDiscountArray(order, date) {
@@ -39,9 +40,19 @@ class PromotionController {
     return array;
   }
 
+  #getArraySum(array) {
+    return array.reduce((total, arr) => total + arr[1], 0);
+  }
+
   #getDiscountAmount(array) {
     const discountArray = array.filter((el) => el !== null);
-    return discountArray.reduce((total, arr) => total + arr[1], 0);
+    return this.#getArraySum(discountArray);
+  }
+
+  #getAfterDiscount(order, array) {
+    const totalAmount = order.getTotalAmount();
+    const discountArray = array.slice(0, -1).filter((el) => el !== null);
+    return totalAmount - this.#getArraySum(discountArray);
   }
 }
 
