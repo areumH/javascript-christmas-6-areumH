@@ -35,6 +35,7 @@ const ORDER = {
 };
 
 const DISCOUNT = {
+  MINIMUM: 10000,
   BASIC: 1000,
   INCREASE: 100,
   WEEK: 2023,

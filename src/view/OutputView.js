@@ -24,27 +24,34 @@ const OutputView = {
   },
 
   printGiftMenu(total) {
-    const message =
+    const giftMessage =
       total >= ORDER.GIFT_AMOUNT
         ? DISCOUNT_MESSAGE.GIFT
         : DISCOUNT_MESSAGE.NONE;
 
     Console.print(OUTPUT_MESSAGE.GIFT_MENU);
-    Console.print(message);
+    Console.print(giftMessage);
   },
 
   printDiscountList(discountArray) {
     Console.print(OUTPUT_MESSAGE.DISCOUNT_LIST);
 
-    discountArray.forEach((array) => {
-      array !== null &&
-        Console.print(`${array[0]} ${this.discountWithComma(array[1])}`);
-    });
+    discountArray === null
+      ? Console.print(DISCOUNT_MESSAGE.NONE)
+      : discountArray.forEach((array) => {
+          array !== null &&
+            Console.print(`${array[0]} ${this.discountWithComma(array[1])}`);
+        });
   },
 
   printDiscountAmount(discount) {
+    const discountMessage =
+      discount === 0
+        ? this.amountWithComma(discount)
+        : this.discountWithComma(discount);
+
     Console.print(OUTPUT_MESSAGE.DISCOUNT_AMOUNT);
-    Console.print(this.discountWithComma(discount));
+    Console.print(discountMessage);
   },
 
   printAfterDiscount(total) {
@@ -55,8 +62,7 @@ const OutputView = {
   printBadge(badge) {
     Console.print(OUTPUT_MESSAGE.BADGE_MESSAGE);
     Console.print(badge);
-  }
-
+  },
 };
 
 export default OutputView;

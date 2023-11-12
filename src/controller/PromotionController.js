@@ -35,6 +35,8 @@ class PromotionController {
   }
 
   #getDiscountArray(order, date) {
+    if (this.#handler.checkLessThanMin(order)) return null;
+    
     let array = [];
 
     array.push(this.#handler.getChristmasDiscount(date));
@@ -46,17 +48,20 @@ class PromotionController {
   }
 
   #getArraySum(array) {
+    if (array === null) return 0;
     return array.reduce((total, arr) => total + arr[1], 0);
   }
 
   #getDiscountAmount(array) {
+    if (array === null) return 0;
+    
     const discountArray = array.filter((el) => el !== null);
     return this.#getArraySum(discountArray);
   }
-
+  
   #getAfterDiscount(order, array) {
     const totalAmount = order.getTotalAmount();
-    const discountArray = array.slice(0, -1).filter((el) => el !== null);
+    const discountArray = array === null ? null : array.slice(0, -1).filter((el) => el !== null);
     return totalAmount - this.#getArraySum(discountArray);
   }
 

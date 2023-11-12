@@ -2,6 +2,10 @@ import { ORDER, DISCOUNT, BADGE } from "../constants/constants.js";
 import { DISCOUNT_MESSAGE } from "../constants/messages.js";
 
 class PromotionHandler {
+  checkLessThanMin(order) {
+    return order.getTotalAmount() < DISCOUNT.MINIMUM;
+  }
+
   getChristmasDiscount(date) {
     // 크리스마스디데이
     const visitDate = date.checkChristmasDiscount();
