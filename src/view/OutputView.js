@@ -40,12 +40,15 @@ const OutputView = {
   printDiscountList(discountArray) {
     Console.print(OUTPUT_MESSAGE.DISCOUNT_LIST);
 
-    discountArray === null
-      ? Console.print(DISCOUNT_MESSAGE.NONE)
-      : discountArray.forEach((array) => {
-          array !== null &&
-            Console.print(`${array[0]} ${this.discountWithComma(array[1])}`);
-        });
+    if (discountArray === null) {
+      Console.print(DISCOUNT_MESSAGE.NONE);
+      return;
+    }
+
+    discountArray.forEach((array) => {
+      if (array)
+        Console.print(`${array[0]} ${this.discountWithComma(array[1])}`);
+    });
   },
 
   printDiscountAmount(discount) {
