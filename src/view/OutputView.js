@@ -7,7 +7,11 @@ const OutputView = {
     Console.print(OUTPUT_MESSAGE.EVENT_MESSAGE);
     Console.print(OUTPUT_MESSAGE.MENU_LIST);
 
-    orderMenu.printOrderMenu();
+    const [menus, numbers] = orderMenu.getOrderMenu();
+
+    menus.forEach((menu, index) => {
+      Console.print(`${menu} ${numbers[index]}개`);
+    });
   },
 
   amountWithComma(input) {

@@ -1,5 +1,4 @@
 import { MENU } from "../constants/constants.js";
-import { Console } from "@woowacourse/mission-utils";
 import { ERROR_MESSAGE } from "../constants/messages.js";
 
 import Validator from "../validators/Validator.js";
@@ -36,10 +35,8 @@ class OrderMenu {
     }
   }
 
-  printOrderMenu() {
-    this.#menus.forEach((menu, index) => {
-      Console.print(`${menu} ${this.#numbers[index]}개`);
-    });
+  getOrderMenu() {
+    return [this.#menus, this.#numbers];
   }
 
   getTotalAmount() {
