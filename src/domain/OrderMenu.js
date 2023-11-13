@@ -31,7 +31,7 @@ class OrderMenu {
     if (Validator.checkOrderNumber(numbers)) {
       throw new Error(ERROR_MESSAGE.INVALID_ORDER);
     }
-    if (Validator.checkLessThanTwenty(numbers)) {
+    if (Validator.checkMoreThanTwenty(numbers)) {
       throw new Error(ERROR_MESSAGE.INVALID_ORDER);
     }
   }

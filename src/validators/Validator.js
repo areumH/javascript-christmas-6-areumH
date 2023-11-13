@@ -51,7 +51,7 @@ const Validator = {
     return false;
   },
 
-  checkLessThanTwenty(numbers) {
+  checkMoreThanTwenty(numbers) {
     return this.getSum(numbers) > ORDER.MAX_RANGE;
   },
 };
