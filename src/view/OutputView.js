@@ -40,7 +40,7 @@ const OutputView = {
   printDiscountList(discountArray) {
     Console.print(OUTPUT_MESSAGE.DISCOUNT_LIST);
 
-    if (discountArray === null) {
+    if (!discountArray) {
       Console.print(DISCOUNT_MESSAGE.NONE);
       return;
     }

@@ -9,7 +9,7 @@ class PromotionHandler {
   getChristmasDiscount(date) {
     const visitDate = date.checkChristmasDiscount();
 
-    if (visitDate !== null) {
+    if (visitDate) {
       return [
         DISCOUNT_MESSAGE.CHRISTMAS_MESSAGE,
         DISCOUNT.BASIC + (visitDate - 1) * DISCOUNT.INCREASE,
@@ -47,9 +47,9 @@ class PromotionHandler {
   }
 
   getTotalDiscount(array) {
-    if (array === null) return 0;
+    if (!array) return 0;
 
-    const discountArray = array.filter((el) => el !== null);
+    const discountArray = array.filter((el) => el);
     return discountArray.reduce((total, arr) => total + arr[1], 0);
   }
 

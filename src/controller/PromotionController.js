@@ -53,7 +53,7 @@ class PromotionController {
 
   #getAfterDiscount(order, array) {
     const totalAmount = order.getTotalAmount();
-    const discountArray = array === null ? null : array.slice(0, -1);
+    const discountArray = !array ? null : array.slice(0, -1);
 
     return totalAmount - this.#handler.getTotalDiscount(discountArray);
   }
