@@ -21,22 +21,22 @@ class PromotionController {
     this.#outputView.printOrderAmount(order.getTotalAmount());
     this.#outputView.printGiftMenu(order.getTotalAmount());
 
-    const discountArray = this.#getDiscountArray(order, date);
+    const discountArray = this.#getEventArray(order, date);
     this.#outputView.printDiscountList(discountArray);
 
     const discountAmount = this.#getDiscountAmount(discountArray);
     this.#outputView.printDiscountAmount(discountAmount);
-    this.#outputView.printAfterDiscount(
-      this.#getAfterDiscount(order, discountArray)
-    );
+
+    const total = this.#getAfterDiscount(order, discountArray);
+    this.#outputView.printAfterDiscount(total);
 
     const badge = this.#getEventBadge(discountAmount);
     this.#outputView.printBadge(badge);
   }
 
-  #getDiscountArray(order, date) {
+  #getEventArray(order, date) {
     if (this.#handler.checkLessThanMin(order)) return null;
-    
+
     let array = [];
 
     array.push(this.#handler.getChristmasDiscount(date));
@@ -47,22 +47,15 @@ class PromotionController {
     return array;
   }
 
-  #getArraySum(array) {
-    if (array === null) return 0;
-    return array.reduce((total, arr) => total + arr[1], 0);
+  #getDiscountAmount(array) {
+    return this.#handler.getTotalDiscount(array);
   }
 
-  #getDiscountAmount(array) {
-    if (array === null) return 0;
-    
-    const discountArray = array.filter((el) => el !== null);
-    return this.#getArraySum(discountArray);
-  }
-  
   #getAfterDiscount(order, array) {
     const totalAmount = order.getTotalAmount();
-    const discountArray = array === null ? null : array.slice(0, -1).filter((el) => el !== null);
-    return totalAmount - this.#getArraySum(discountArray);
+    const discountArray = array === null ? null : array.slice(0, -1);
+
+    return totalAmount - this.#handler.getTotalDiscount(discountArray);
   }
 
   #getEventBadge(discount) {

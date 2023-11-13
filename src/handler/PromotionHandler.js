@@ -50,6 +50,13 @@ class PromotionHandler {
     return null;
   }
 
+  getTotalDiscount(array) {
+    if (array === null) return 0;
+
+    const discountArray = array.filter((el) => el !== null);
+    return discountArray.reduce((total, arr) => total + arr[1], 0);
+  }
+
   getBadge(discount) {
     if (discount >= ORDER.SANTA) return BADGE.SANTA;
     if (discount >= ORDER.TREE) return BADGE.TREE;
