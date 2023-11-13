@@ -16,15 +16,15 @@ const MENU = [
   { name: "샴페인", price: 25000, type: "DRINK" },
 ];
 
-const DATE = {
+const DATE = Object.freeze({
   MIN_RANGE: 1,
   MAX_RANGE: 31,
   CHRISTMAS: 25,
   WEEKEND: [1, 2, 8, 9, 15, 16, 22, 23, 29, 30],
   STAR: [3, 10, 17, 24, 25, 31],
-};
+});
 
-const ORDER = {
+const ORDER = Object.freeze({
   MIN_RANGE: 1,
   MAX_RANGE: 20,
   GIFT_AMOUNT: 120000,
@@ -32,21 +32,21 @@ const ORDER = {
   STAR: 5000,
   TREE: 10000,
   SANTA: 20000,
-};
+});
 
-const DISCOUNT = {
+const DISCOUNT = Object.freeze({
   MINIMUM: 10000,
   BASIC: 1000,
   INCREASE: 100,
   WEEK: 2023,
   STAR: 1000,
   GIFT: 25000,
-};
+});
 
-const BADGE = {
+const BADGE = Object.freeze({
   STAR: "별",
   TREE: "트리",
   SANTA: "산타",
-};
+});
 
 export { MENU, DATE, ORDER, DISCOUNT, BADGE };
