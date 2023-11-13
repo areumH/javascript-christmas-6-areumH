@@ -19,17 +19,17 @@ class VisitDate {
 
   checkChristmasDiscount() {
     if (this.#date <= DATE.CHRISTMAS) {   
-      return this.#date;   // 리턴값: 날짜가 1~25인 경우 날짜 반환
+      return this.#date;  
     }
     return null;
   }
 
   checkIsWeekend() {
-    return DATE.WEEKEND.includes(this.#date); // 리턴값: 주말=true 평일=false
+    return DATE.WEEKEND.includes(this.#date);
   }
 
   checkStarDate() {
-    return DATE.STAR.includes(this.#date); // 리턴값: 별표있는날짜=true 그외=false
+    return DATE.STAR.includes(this.#date);
   }
 }
 

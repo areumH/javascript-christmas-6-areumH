@@ -18,7 +18,6 @@ class OrderMenu {
     const menus = input[0];
     const numbers = input[1];
 
-    // 메뉴 배열 확인
     if (Validator.checkValidMenu(menus)) {
       throw new Error(ERROR_MESSAGE.INVALID_ORDER);
     }
@@ -29,7 +28,6 @@ class OrderMenu {
       throw new Error(ERROR_MESSAGE.INVALID_ORDER);
     }
 
-    // 개수 배열 확인
     if (Validator.checkOrderNumber(numbers)) {
       throw new Error(ERROR_MESSAGE.INVALID_ORDER);
     }
@@ -62,13 +60,11 @@ class OrderMenu {
   }
 
   getMainCount() {
-    // 메인메뉴 개수 리턴 => 주말에 개당 2023원 할인
     const mainMenu = this.#getMenuByType("MAIN");
     return this.#getCountByType(mainMenu);
   }
 
   getDessertCount() {
-    // 디저트메뉴 개수 리턴 => 평일에 개당 2023원 할인
     const dessertMenu = this.#getMenuByType("DESSERT");
     return this.#getCountByType(dessertMenu);
   }

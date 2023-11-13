@@ -7,7 +7,6 @@ class PromotionHandler {
   }
 
   getChristmasDiscount(date) {
-    // 크리스마스디데이
     const visitDate = date.checkChristmasDiscount();
 
     if (visitDate !== null) {
@@ -20,7 +19,6 @@ class PromotionHandler {
   }
 
   getWeekDiscount(order, date) {
-    // 주말(메인) 평일(디저트)
     const weekendDiscount = order.getMainCount() * DISCOUNT.WEEK;
     const weekdayDiscount = order.getDessertCount() * DISCOUNT.WEEK;
 
@@ -35,7 +33,6 @@ class PromotionHandler {
   }
 
   getStarDiscount(date) {
-    // 별표날짜
     if (date.checkStarDate()) {
       return [DISCOUNT_MESSAGE.STAR_MESSAGE, DISCOUNT.STAR];
     }
@@ -43,7 +40,6 @@ class PromotionHandler {
   }
 
   getGiftDiscount(order) {
-    // 샴페인증정
     if (order.getTotalAmount() >= ORDER.GIFT_AMOUNT) {
       return [DISCOUNT_MESSAGE.GIFT_MESSAGE, DISCOUNT.GIFT];
     }
