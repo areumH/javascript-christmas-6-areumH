@@ -99,4 +99,29 @@ describe("예외 테스트", () => {
     // then
     expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(INVALID_ORDER_MESSAGE));
   });
+
+  test("20개 초과 주문 예외 테스트", async () => {
+    const INVALID_ORDER_MESSAGE = "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.";
+    const INPUTS_TO_END = ["해산물파스타-2"];
+    const logSpy = getLogSpy();
+    mockQuestions(["3","해산물파스타-13,초코케이크-8", ...INPUTS_TO_END]);
+
+    const app = new App();
+    await app.run();
+
+    expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(INVALID_ORDER_MESSAGE));
+  
+  })
+  
+  test("음료만 주문 예외 테스트", async () => {
+    const INVALID_ORDER_MESSAGE = "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.";
+    const INPUTS_TO_END = ["해산물파스타-2"];
+    const logSpy = getLogSpy();
+    mockQuestions(["3","제로콜라-1,레드와인-2", ...INPUTS_TO_END]);
+
+    const app = new App();
+    await app.run();
+
+    expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(INVALID_ORDER_MESSAGE));
+  })
 });
