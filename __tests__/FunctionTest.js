@@ -1,4 +1,5 @@
 import PromotionHandler from "../src/handler/PromotionHandler.js";
+import VisitDate from "../src/domain/VisitDate.js";
 import OrderMenu from "../src/domain/OrderMenu.js";
 
 describe("함수별 기능 테스트", () => {
@@ -12,6 +13,27 @@ describe("함수별 기능 테스트", () => {
 
     const result = handler.checkLessThanMin(order);
     const output = false;
+
+    expect(result).toEqual(output);
+  });
+
+  test("총혜택 금액 확인하기", () => {
+    const handler = new PromotionHandler();
+    const input = [
+      ["해산물파스타", "아이스크림", "제로콜라"],
+      [2, 1, 1],
+    ];
+    const date = new VisitDate(3);
+    const order = new OrderMenu(input);
+    const array = [
+      handler.getChristmasDiscount(date),
+      handler.getWeekDiscount(order, date),
+      handler.getStarDiscount(date),
+      handler.getGiftDiscount(order),
+    ];
+    
+    const result = handler.getTotalDiscount(array);
+    const output = 4223;
 
     expect(result).toEqual(output);
   });
