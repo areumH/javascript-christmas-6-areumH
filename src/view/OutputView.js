@@ -37,6 +37,14 @@ const OutputView = {
     Console.print(giftMessage);
   },
 
+  printOrderList(order) {
+    const totalAmount = order.getTotalAmount();
+
+    this.printOrderMenu(order);
+    this.printOrderAmount(totalAmount);
+    this.printGiftMenu(totalAmount);
+  },
+
   printDiscountList(discountArray) {
     Console.print(OUTPUT_MESSAGE.DISCOUNT_LIST);
 

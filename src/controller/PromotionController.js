@@ -16,10 +16,7 @@ class PromotionController {
   async startPromotion() {
     const date = await this.#inputView.getVisitDate();
     const order = await this.#inputView.getOrderMenu();
-
-    this.#outputView.printOrderMenu(order);
-    this.#outputView.printOrderAmount(order.getTotalAmount());
-    this.#outputView.printGiftMenu(order.getTotalAmount());
+    this.#outputView.printOrderList(order);
 
     const discountArray = this.#getEventArray(order, date);
     this.#outputView.printDiscountList(discountArray);
