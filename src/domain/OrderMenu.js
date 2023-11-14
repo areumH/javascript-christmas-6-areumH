@@ -17,6 +17,11 @@ class OrderMenu {
     const menus = input[0];
     const numbers = input[1];
 
+    this.#validateMenu(menus);
+    this.#validateNumber(numbers);
+  }
+  
+  #validateMenu(menus) {
     if (Validator.checkValidMenu(menus)) {
       throw new Error(ERROR_MESSAGE.INVALID_ORDER);
     }
@@ -26,7 +31,9 @@ class OrderMenu {
     if (Validator.checkIsAllDrink(menus)) {
       throw new Error(ERROR_MESSAGE.INVALID_ORDER);
     }
-
+  }
+  
+  #validateNumber(numbers) {
     if (Validator.checkOrderNumber(numbers)) {
       throw new Error(ERROR_MESSAGE.INVALID_ORDER);
     }
