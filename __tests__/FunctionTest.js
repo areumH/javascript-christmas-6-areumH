@@ -37,4 +37,14 @@ describe("함수별 기능 테스트", () => {
 
     expect(result).toEqual(output);
   });
+
+  test("이벤트 배지 출력하기", () => {
+    const handler = new PromotionHandler();
+    const input = 15000;
+
+    const result = handler.getBadge(input);
+    const output = "트리";
+
+    expect(result).toEqual(output);
+  });
 });
