@@ -38,12 +38,42 @@ describe("함수별 기능 테스트", () => {
     expect(result).toEqual(output);
   });
 
-  test("이벤트 배지 출력하기", () => {
+  test("이벤트 배지 산타 출력하기", () => {
     const handler = new PromotionHandler();
-    const input = 15000;
+    const input = 20000;
+
+    const result = handler.getBadge(input);
+    const output = "산타";
+
+    expect(result).toEqual(output);
+  });
+
+  test("이벤트 배지 트리 출력하기", () => {
+    const handler = new PromotionHandler();
+    const input = 10000;
 
     const result = handler.getBadge(input);
     const output = "트리";
+
+    expect(result).toEqual(output);
+  });
+
+  test("이벤트 배지 별 출력하기", () => {
+    const handler = new PromotionHandler();
+    const input = 5000;
+
+    const result = handler.getBadge(input);
+    const output = "별";
+
+    expect(result).toEqual(output);
+  });
+
+  test("이벤트 배지 없음 출력하기", () => {
+    const handler = new PromotionHandler();
+    const input = 0;
+
+    const result = handler.getBadge(input);
+    const output = "없음";
 
     expect(result).toEqual(output);
   });
