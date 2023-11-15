@@ -2,6 +2,24 @@ import VisitDate from "../src/domain/VisitDate.js";
 import OrderMenu from "../src/domain/OrderMenu.js";
 
 describe("방문 날짜 테스트", () => {
+  test.each([1, 25])("크리스마스 디데이 할인 가능 날짜 확인하기", (inputs) => {
+    const date = new VisitDate(inputs);
+
+    const result = date.checkChristmasDiscount();
+    const output = inputs;
+
+    expect(result).toEqual(output);
+  });
+
+  test("크리스마스 디데이 할인 불가능 날짜 확인하기", () => {
+    const date = new VisitDate(26);
+
+    const result = date.checkChristmasDiscount();
+    const output = null;
+
+    expect(result).toEqual(output);
+  });
+
   test.each([1, 2, 8, 9, 15, 16, 22, 23, 29, 30])("주말 확인하기", (inputs) => {
     const date = new VisitDate(inputs);
 
